@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="mywebsite.css">
+</head>
+<body>
+
+<div id="mobile-menu">
+    <nav>
+        <ul id="nav-buttons">
+            <li class="nav-button">
+                <span>HOME</span>
+            </li>
+            <li class="nav-button">
+                <span>PROJECTS</span>
+            </li>
+            <li class="nav-button">
+                <span>ABOUT</span>
+            </li>
+        </ul>
+    </nav>
+</div>    
+<div id="sidebar-perspective">
+    <div id="sidebar-container">    
+        <nav id="sidebar">    
+            <div id="link-container"> <!-- change to UL later  -->
+                <li class="link-button">
+                    <span>HOME</span>
+                </li>
+                <li class="link-button">
+                    <span>PROJECTS</span>
+                </li>
+                <li class="link-button">
+                    <span>ABOUT</span>
+                </li>
+            </div>
+        </nav>
+    </div>
+</div>
+
+<div id="page-content">
+<p>Sorry, site is a work in progress! I'm still testing code and cleaning it up.</p>
+<a href="https://github.com/BlueRedBlueYellow">My Github page!</a>
+</div>
+
+<div id="scrolling-test">
+Ignore this text, just a random test for scrolling. 👀
+</div>
+
+</body>
+<script>
+
+let resizeTimer;
+window.addEventListener("resize", () => {
+  document.body.classList.add("resize-transition-stopper");
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(() => {
+    document.body.classList.remove("resize-transition-stopper");
+  }, 100);
+});
+
+</script>
+</html>
