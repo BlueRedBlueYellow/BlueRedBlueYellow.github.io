@@ -18,6 +18,8 @@ html, body {
     transition: none !important;
 }
 
+/* Mobile Menu */
+
 #mobile-menu {
     display: flex;
     position: fixed;
@@ -43,10 +45,8 @@ html, body {
     display: inline-block;
     position: relative;
     top: 15px;
-    margin-right: 2vw;
-    padding-right: 2vw;
-    padding-left: 2vw;
-    margin-left: 2vw;
+    margin: 0 5px 0 5px;
+    padding: 0 15px 0 15px;
     font-size: 18px;
     font-family: "LEMONMILK-Bold";
     font-weight: bold;
@@ -55,9 +55,15 @@ html, body {
     border: 2px;
     border-color: black;
     line-height: 45px;
-    background-color: rgb(251, 255, 0);
+    background-color: rgb(255, 255, 0);
     color:black;
 }
+
+#nav-buttons li:hover { 
+    transition: background-color 0.5s;
+    background-color: rgb(170, 170, 0);
+}
+/* Desktop Menu */
 
 #sidebar-perspective {
     position: fixed;
@@ -74,15 +80,17 @@ html, body {
 }
 
 #sidebar {
+    display: flex;
     position: absolute;
+    align-items: center;
     top: 1vmin;
     left: -2vmin;
     width: calc(200vmin / 5);
-    height: 93.5vh;
+    height: 95vh;
     background-color: #FFFF00;
-    border: 2.6vh;
+    border: 2.5vh;
     border-color: white;
-    border-style: solid;    
+    border-style: solid;
 }
 
 
@@ -100,8 +108,7 @@ html, body {
 #link-container {
     display: grid;
     position: relative;
-    top: calc(100% / 2 -(100% / 1.5) / 2);
-    height: calc(100% / 1.5);
+    height: 75%;
     grid-row-gap: calc(8vh);
     justify-content:space-between;
 }
@@ -164,14 +171,13 @@ html, body {
     font-size: 4vmin;
     font-family: "Arial";
     text-align: center;
-    white-space: pre-line;
 
     color: white;
 }
 
-@media (max-height: 360px), screen and (max-width: 639px) {
+@media (max-height: 360px), screen and (max-width: 720px) {
     #page-content {
-        left: 0px;
+        left: 0;
     }
 
     #sidebar-container {
