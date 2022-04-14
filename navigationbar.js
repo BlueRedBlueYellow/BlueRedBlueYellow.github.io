@@ -58,7 +58,7 @@ let desktop_nav_buttons = document.body.getElementsByClassName("desktop-nav-butt
 const overlay = document.getElementById("overlay");
 for (let button of desktop_nav_buttons) {
     button.addEventListener("mouseenter", () => {
-        overlay.style.opacity = "0.7";
+        overlay.style.opacity = "0.8";
     })
 
     button.addEventListener("mouseleave", () => {

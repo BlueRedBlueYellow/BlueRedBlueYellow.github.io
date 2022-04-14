@@ -4,7 +4,7 @@
         url('LEMONMILK-Bold.woff2') format('woff2');
 }
 
-/*maybe use more flexbox + need to sort css property order better */
+/*maybe use more flexbox*/
 /*make things less specific and check if some of these IDs are needed*/
 /*NOTE ORDER CSS PROPERTIRES IN A SPECIFIC WAY*/
 html, body {
@@ -54,6 +54,7 @@ html, body {
     width: 100%;
     height: 100%;
     opacity: 0.0;
+
     transition: opacity 0.4s;
     z-index: 0;
 }
@@ -152,7 +153,8 @@ html, body {
     width: 50vmin;
     background-color: black;
     color: white;
-    transition: width 0.5s;
+    
+    transition: width 0.4s;
     z-index: auto;
 }
 
