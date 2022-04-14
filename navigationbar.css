@@ -6,13 +6,21 @@
 
 /*maybe use more flexbox + need to sort css property order better */
 /*make things less specific and check if some of these IDs are needed*/
+/*NOTE ORDER CSS PROPERTIRES IN A SPECIFIC WAY*/
 html, body {
     height: 100%;
     width: 100%;
     margin: 0px;
     padding: 0px;
-    background-color:#130C08;
 }
+
+#background { 
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color:#130C08;
+    z-index: -99;
+} 
 
 .resize-transition-stopper * {
     transition: none !important;
@@ -23,9 +31,9 @@ html, body {
     position: absolute;
     
     top: 0px;
-    right: 0px;
+    right: 4vmin;
     bottom: 0px;
-    left: 48vmin;
+    left: 47vmin;
 
     justify-content: center;
     align-items: center;
@@ -35,18 +43,29 @@ html, body {
     font-size: 4vmin;
     font-family: "Arial";
     text-align: center;
-
     color: white;
+
+    z-index: -1;
+}
+
+#overlay {
+    position: absolute;
+    background-color:rgb(0, 0, 0);
+    width: 100%;
+    height: 100%;
+    opacity: 0.0;
+    transition: opacity 0.4s;
+    z-index: 0;
 }
 
 /* Mobile Menu */
-#mobile-menu {
+#mobile-navbar {
     display: flex;
     position: fixed;
     top: -25px;
     width: 100%;
     height: 100px;
-    z-index: 1;
+    z-index: 2;
     visibility: hidden;
     text-align: center;
     align-items: center;
@@ -56,12 +75,12 @@ html, body {
     border-bottom: 2px solid rgb(255, 255, 255);
 }
 
-#nav-buttons {
+#mobile-nav-buttons {
     margin: 0px;
     padding: 0px;
 }
 
-#nav-buttons li { /* maybe flexbox would be better */
+#mobile-nav-buttons li { /* maybe flexbox would be better */
     display: inline-block;
     position: relative;
     top: 15px;
@@ -79,26 +98,26 @@ html, body {
     color:black;
 }
 
-#nav-buttons li:hover { 
+#mobile-nav-buttons li:hover { 
     transition: background-color 0.3s;
     background-color: rgb(170, 170, 0);
 }
 
 /* Desktop Menu */
-#sidebar-perspective {
+#desktop-navbar-perspective {
     position: fixed;
     perspective: 130vh;
     perspective-origin: 100vh 50vh;
 }
 
-#sidebar-container {
+#desktop-navbar-container {
     top: 0px;
     left: 0px;
     margin: -8px 0 0 -8px;
     transform: rotate3d(0,1,0,70deg);
 }
 
-#sidebar {
+#desktop-navbar {
     display: flex;
     position: absolute;
     top: 1vmin;
@@ -108,9 +127,10 @@ html, body {
     height: 95vh;
     background-color: #FFFF00;
     border: 2.5vh solid white;
+    z-index: auto;
 }
 
-#link-button-container {
+#desktop-nav-buttons {
     display: grid;
     position: relative;
     height: 75%;
@@ -118,7 +138,7 @@ html, body {
     justify-content:space-between;
 }
 
-.link-button {
+.desktop-nav-button {
     display: flex;
     position: relative;
     justify-content: center;
@@ -131,20 +151,31 @@ html, body {
 
     width: 50vmin;
     background-color: black;
-    color:rgb(255, 250, 250);
+    color: white;
     transition: width 0.5s;
+    z-index: auto;
 }
 
-.link-button:hover {
+.desktop-nav-button:hover {
     width: 64vmin; /*probably not needed */
 }
 
-.link-button span {
+.desktop-nav-button span {
     z-index: 1;
 }
 
+.desktop-nav-button a {
+    color: white;
+    text-decoration: none;
+}
+
+.desktop-nav-button a:hover {
+    color: darkgrey;
+}
+
 /* Extra Outlines */
-.link-button::after {
+
+.desktop-nav-button::after {
     position: absolute;
     top: 0%;
     left: 0%;
@@ -152,10 +183,11 @@ html, body {
     width: 100%;
     height: 100%;
     box-shadow: 0.0vh 0px 0px 0.6vh #ffffff;
+    background-color: white;
     z-index: -1;
 }
 
-#sidebar::after {
+#desktop-navbar::after {
     position: absolute;
     top: 0%;
     left: 0%;
@@ -165,23 +197,17 @@ html, body {
     box-shadow: 0px 0px 0px 2vh #000000;
 }
 
-
 @media (max-height: 360px), screen and (max-width: 720px) {
     #page-content {
         left: 0;
+        right: 0;
     }
 
-    #sidebar-container {
+    #desktop-navbar-container {
         visibility: hidden;
     } 
 
-    #mobile-menu {
+    #mobile-navbar {
         visibility: visible;
     }
-}
-
-#scrolling-test {
-	position: absolute;
-    bottom: -3000px;
-    color: white;
 }
