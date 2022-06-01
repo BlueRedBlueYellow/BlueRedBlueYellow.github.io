@@ -59,9 +59,13 @@ const overlay = document.getElementById("overlay");
 for (let button of desktop_nav_buttons) {
     button.addEventListener("mouseenter", () => {
         overlay.style.opacity = "0.8";
+        document.getElementById("page-content").style.zIndex = "-1";
     })
 
     button.addEventListener("mouseleave", () => {
         overlay.style.opacity = "0";
+        setTimeout(() => {
+            document.getElementById("page-content").style.zIndex = "0";
+        }, 200)
     })
 };

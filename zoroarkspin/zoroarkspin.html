@@ -1,0 +1,105 @@
+<htmL><head>
+    <style>
+        body {
+            background-color: black;
+        }
+
+        #page-layout {
+            display: grid;
+            width: 100%;
+            height: 100%;
+            grid-template-areas:
+            'header header header header'
+            'left main main right'
+            'footer footer footer footer';
+            grid-template-rows: 0.2fr 1fr 0.1fr; 
+            grid-template-columns: auto 0.2fr 0.2fr auto; 
+            gap: 10px;
+            color: white;
+            font-size: 20px;
+        }
+
+        header {
+            grid-area: header;
+            text-align: center;
+            padding-bottom: 3%;
+        }
+
+        #header img {
+            height: 10vmax;
+        }
+
+        #left {
+            grid-area: left;
+            text-align: right;
+        }
+
+        #main {
+            grid-area: main;
+            text-align: center;
+        }
+
+        #right {
+            grid-area: right;
+            text-align: left;
+        }
+
+        footer {
+            grid-area: footer;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="page-layout">
+        <header>
+            <img src="zoroarkspinlogo.png" alt="Zoroark Spin logo"></img>
+        </header>
+        <a href="#" id="left">LEFT</a>
+        <div id="main">
+            <video id="zoroark-vid" width="100%" loop>
+                <source id="zoroark-vid-src" src="zoroarkspin.mp4" type="video/mp4">
+            </video>
+        </div>
+        <a href="#" id="right">RIGHT</a>
+        <footer>2020, Copyright © The ██████ Company | Credit to u/MelammuDingir for the video</footer>
+    </div>
+</htmL>
+<script>
+    document.getElementById("left").addEventListener("click", turnLeft);
+    document.getElementById("right").addEventListener("click", turnRight);
+
+    const zoroarkVid = document.getElementById("zoroark-vid");
+    const zoroarkVidSrc = document.getElementById("zoroark-vid-src");
+    vidPlaying = true;
+    currentDirection = "right";
+
+    function playVid(newDirection) {
+        vidPlaying = !vidPlaying;
+        if (currentDirection != newDirection) {
+            currentDirection = newDirection;
+            if (currentDirection == "right") {
+                zoroarkVidSrc.src = "zoroarkspinreverse.mp4"
+            } else if (currentDirection == "left") {
+                zoroarkVidSrc.src = "zoroarkspin.mp4";
+            }
+            zoroarkVid.load()
+            vidPlaying = true;
+            console.log("Zoroark spin direction changed")
+        }
+
+        if (vidPlaying) {
+            zoroarkVid.play()
+        } else {
+            zoroarkVid.pause()
+        }
+    }
+
+    function turnLeft() {
+        playVid("left")
+    } 
+
+    function turnRight() {
+        playVid("right")
+    } 
+</script>
